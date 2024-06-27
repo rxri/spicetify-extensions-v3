@@ -1,0 +1,5 @@
+{
+	"tasks": {
+		"win:build": "./scripts/build-dev.ps1"
+	}
+}

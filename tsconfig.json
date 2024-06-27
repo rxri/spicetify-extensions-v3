@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"target": "ESNext",
+		"verbatimModuleSyntax": true,
+		"moduleResolution": "Bundler",
+		"module": "ESNext",
+		"allowJs": true,
+		"jsx": "react",
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"lib": ["ES2021", "DOM"],
+		"baseUrl": "../",
+		"paths": {
+			"/*": ["./*"]
+		}
+	}
+}

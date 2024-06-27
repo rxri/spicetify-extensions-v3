@@ -1,0 +1,9 @@
+{
+	"name": "spicetify-extensions",
+	"author": "ririxi <dev@ririxi.dev>",
+	"version": "3.0.0",
+	"license": "MIT",
+	"scripts": {
+		"build:win": "pwsh scripts/build-dev.ps1"
+	}
+}
