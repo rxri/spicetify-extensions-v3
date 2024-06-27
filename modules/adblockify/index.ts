@@ -5,6 +5,7 @@ import type { AdManagers } from "./src/interfaces/platform";
 import { bindSlots, configureAdManagers, intervalUpdateSlotSettings } from "./src/slot.js";
 import { createLogger } from "/modules/official/stdlib/index.js";
 import type { Module } from "/hooks/module.js";
+import { configureExpFeatures } from "./src/expFeatures.js";
 
 interface ProductStateAPI {
 	putOverridesValues(params: { pairs: { [key: string]: string } }): Promise<void>;
@@ -12,7 +13,8 @@ interface ProductStateAPI {
 	transport: any;
 }
 
-const { getAdManagers, getUserAPI } = Platform;
+const { getAdManagers, getUserAPI, getLocalStorageAPI } = Platform;
+export const localStorage = getLocalStorageAPI();
 export const adManagers = getAdManagers() as unknown as AdManagers;
 export const productState: ProductStateAPI =
 	// @ts-expect-error: Depends on the version of Spotify, AutoGen doesn't have all of them
@@ -31,6 +33,7 @@ export default function (mod: Module) {
 	/**
 	 * Main functions
 	 */
+	configureExpFeatures();
 	bindSlots(slots);
 	productState.subValues({ keys: ["ads", "catalogue", "product", "type"] }, () => configureAdManagers());
 
