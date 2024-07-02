@@ -2,3 +2,9 @@
 node_modules
 .swc
 *.js
+deno.lock
+dist
+
+# classmap
+classmap.json
+classmap.d.ts

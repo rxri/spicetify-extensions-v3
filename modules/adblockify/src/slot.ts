@@ -1,9 +1,8 @@
-import { adManagers, productState, slotsClient, settingsClient, slots, logger } from "../index.js";
+import { adManagers, productState, slotsClient, settingsClient, slots, logger } from "../mod.js";
 import { retryCounter } from "./utils/counter.js";
 import { Cosmos } from "/modules/official/stdlib/src/expose/Platform.js";
-import { createLogger } from "/modules/official/stdlib/index.js";
 
-export const bindSlots = async (slots: { slot_id: string }[]) => {
+export const bindSlots = (slots: { slot_id: string }[]) => {
 	for (const slot of slots) {
 		subToSlot(slot.slot_id);
 		handleAdSlot({ adSlotEvent: { slotId: slot.slot_id } });
@@ -41,6 +40,7 @@ const handleAdSlot = (data: { adSlotEvent: { slotId: string } }) => {
 
 export const configureAdManagers = async () => {
 	try {
+		// @ts-expect-error: Cosmos has broken types
 		await Cosmos.post("sp://ads/v1/testing/playtime", { value: -100000000000 });
 		const { audio, billboard, leaderboard, sponsoredPlaylist } = adManagers;
 

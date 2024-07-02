@@ -1,5 +1,8 @@
 {
 	"tasks": {
-		"win:build": "./scripts/build-dev.ps1"
+		"cm:fetch": "deno run --unstable-sloppy-imports -A scripts/classmap-fetch.ts",
+		"pw:build": "./scripts/build.ps1",
+		"sh:build": "./scripts/build.sh",
+		"build:release": "deno run -A scripts/build-release.ts"
 	}
 }

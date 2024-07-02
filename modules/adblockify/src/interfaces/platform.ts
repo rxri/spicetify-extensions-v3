@@ -28,3 +28,9 @@ export interface AdManagers {
 		isNewAdsNpvEnabled: boolean;
 	};
 }
+
+export interface ProductStateAPI {
+	putOverridesValues(params: { pairs: { [key: string]: string } }): Promise<void>;
+	subValues(params: { keys: string[] }, callback: () => void): Promise<void>;
+	transport: any;
+}

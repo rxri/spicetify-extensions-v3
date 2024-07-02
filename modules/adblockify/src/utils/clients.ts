@@ -1,24 +1,15 @@
-export interface SettingsClient {
-	updateAdServerEndpoint(params: { slotIds: string[]; url: string }): Promise<void>;
-	updateDisplayTimeInterval(params: { slotId: string; timeInterval: string }): Promise<void>;
-	updateSlotEnabled(params: { slotId: string; enabled: boolean }): Promise<void>;
-	updateStreamTimeInterval(params: { slotId: string; timeInterval: string }): Promise<void>;
-}
+import type { SettingsClient, SlotsClient } from "../interfaces/webpack.js";
 
-export interface SlotsClient {
-	clearAllAds(params: { slotId: string }): Promise<void>;
-}
-
-export const getSettingsClient = (modules: any[]): SettingsClient | null => {
+export const getSettingsClient = (modules: any[]): SettingsClient | undefined => {
 	try {
-		return modules.find((m: any) => m.settingsClient).settingsClient;
+		return modules.find((m) => m.settingsClient).settingsClient;
 	} catch (error) {
 		console.error("Failed to get ads settings client", error);
-		return null;
+		return undefined;
 	}
 };
 
-export const getSlotsClient = (functionModules: any[], transport: any): SlotsClient | null => {
+export const getSlotsClient = (functionModules: any[], transport: any): SlotsClient | undefined => {
 	try {
 		const slots = functionModules.find(
 			(m) => m.SERVICE_ID === "spotify.ads.esperanto.slots.proto.Slots" || m.SERVICE_ID === "spotify.ads.esperanto.proto.Slots"
@@ -26,6 +17,6 @@ export const getSlotsClient = (functionModules: any[], transport: any): SlotsCli
 		return new slots(transport);
 	} catch (error) {
 		console.error("Failed to get slots client", error);
-		return null;
+		return undefined;
 	}
 };
