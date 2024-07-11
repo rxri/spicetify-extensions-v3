@@ -1,10 +1,10 @@
-import { Platform, Cosmos } from "/modules/official/stdlib/src/expose/Platform.js";
-import { modules, exportedFunctions } from "/modules/official/stdlib/src/webpack/index.js";
+import { Platform, Cosmos } from "/modules/stdlib/src/expose/Platform.js";
+import { modules, exportedFunctions } from "/modules/stdlib/src/webpack/index.js";
 import { getSettingsClient, getSlotsClient } from "./src/utils/clients.js";
 import type { AdManagers, ProductStateAPI } from "./src/interfaces/platform.js";
 import type { SettingsClient, SlotsClient } from "./src/interfaces/webpack.js";
 import { bindSlots, configureAdManagers, intervalUpdateSlotSettings } from "./src/slot.js";
-import { createLogger } from "/modules/official/stdlib/mod.js";
+import { createLogger } from "/modules/stdlib/mod.js";
 import type { Module } from "/hooks/index.js";
 import { configureExpFeatures } from "./src/expFeatures.js";
 

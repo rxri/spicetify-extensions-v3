@@ -1,6 +1,6 @@
 {
 	"modules": {
-		"/ririxi/adblockify": {
+		"ririxi.adblockify": {
 			"v": {
 				"1.0.0+sp-1.2.40-cm-190747c4b8f": {
 					"artifacts": [

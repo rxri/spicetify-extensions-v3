@@ -8,9 +8,9 @@
 	"preview": "./assets/preview.png",
 	"entries": {
 		"js": "index.js",
-		"css": "index.scss"
+		"css": "index.css"
 	},
 	"dependencies": {
-		"/official/stdlib": ">=0.2.2"
+		"stdlib": ">=0.2.2"
 	}
 }

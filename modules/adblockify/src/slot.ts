@@ -1,6 +1,6 @@
 import { adManagers, productState, slotsClient, settingsClient, slots, logger } from "../mod.js";
 import { retryCounter } from "./utils/counter.js";
-import { Cosmos } from "/modules/official/stdlib/src/expose/Platform.js";
+import { Cosmos } from "/modules/stdlib/src/expose/Platform.js";
 
 export const bindSlots = (slots: { slot_id: string }[]) => {
 	for (const slot of slots) {
